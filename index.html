@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            font-size: 100px;
+            color: #3e9673;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+
+</body>
+<script src="jquery.js"></script>
+<script>
+
+    var index = -1;
+    $('span').on('mouseenter',function () {
+        $(this).html('★').prevAll().html('★');
+        $(this).nextAll().html('☆');
+    }).on('mouseleave',function () {
+        if(index >= 0){
+            $('span').eq(index).html('★').prevAll().html('★');
+            $('span').eq(index).nextAll().html('☆');
+        }else{
+            $('span').html('☆');
+        }
+    }).on('click',function () {
+        index = $(this).index();
+    })
+
+
+
+
+
+
+//    $('span').on('mouseenter', function () {
+//        $(this).html('★');
+//        $(this).prevAll().html('★');
+//        $(this).nextAll().html('☆')
+//    }).on('mouseleave', function () {
+//        $(this).html('☆');
+//        $(this).prevAll().html('☆');
+//        $(this).nextAll().html('☆');
+//    }).on('click', function () {
+//        $(this).html('★');
+//        $(this).prevAll().html('★');
+//        $(this).nextAll().html('☆');
+//         $('span').unbind();
+//    });
+
+
+</script>
+</html>
